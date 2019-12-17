@@ -6,6 +6,7 @@ const Nav = (
     links
   }
 ) => {
+
   return (
     <nav className="nav">
       <ul>

@@ -17,6 +17,7 @@ const App = () => {
               <Col xs="12">
                   <h2>Navigation</h2>
                   <Nav links={links} />
+
               </Col>
           </Row>
         <Row>

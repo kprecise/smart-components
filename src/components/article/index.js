@@ -31,6 +31,7 @@ const JSONData = [
   }
 ]
 
+
 const Article = ({
   srcType,
   dataSrc
