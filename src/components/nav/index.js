@@ -1,24 +1,28 @@
 import React from "react";
-import NavItem from "./navItems";
 import "./index.scss";
 
-const Nav = () => {
-    return (
-        <nav className="nav">
-            <ul>
-                <NavItem 
-                    name="Home"
-                    href="/"
-                    alt="Home"
-                />
-                <NavItem 
-                    name="About"
-                    href="/"
-                    alt="About"
-                />  
-            </ul>          
-        </nav>
-    )
+const Nav = (
+  {
+    links
+  }
+) => {
+  return (
+    <nav className="nav">
+      <ul>
+      {
+        links.map(navItem => (
+          <li className="navItem" key={navItem.name}>
+            <a
+              href={navItem.href}
+              name={navItem.alt}>
+              {navItem.name}
+            </a>
+          </li>
+        ))
+      }
+      </ul>
+    </nav>
+  )
 };
 
 export default Nav;
