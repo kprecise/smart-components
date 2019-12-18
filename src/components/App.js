@@ -25,8 +25,10 @@ const App = () => {
           <Col xs="12">
             <h2>Article</h2>
             <Article
-              srcType="JSON"
-              dataSrc={JSONData}
+              // srcType="JSON"
+              // dataSrc={JSONData}
+              srcType="API"
+              dataSrc="https://restcountries.eu/rest/v2/all"
             />
           </Col>
         </Row>

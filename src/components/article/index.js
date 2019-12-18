@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import axios from 'axios'
+import { DATAFORMAT } from './constants'
 import './styles.scss'
 
 const Article = ({
@@ -7,7 +8,7 @@ const Article = ({
   dataSrc
 }) => {
 
-  const [componentStatus, isLoading] = useState(true)
+  const [isLoading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const [isError, setError] = useState(false)
 
@@ -17,7 +18,7 @@ const Article = ({
         try {
           const result = await axios(dataSrc);
           setData(result.data);
-          isLoading(false)
+          setLoading(false)
         } catch (error) {
           setError(true)
         }
@@ -25,12 +26,12 @@ const Article = ({
       fetchData();
     } else {
       setData(dataSrc);
-      isLoading(false)
+      setLoading(false)
     }
   }, []);
 
-  const buildArticles = (responseData, source) => {
-    if (source === DATAFORMAT.API) {
+  const buildArticles = (responseData, sourceFormat) => {
+    if (sourceFormat === DATAFORMAT.API) {
       return (
         <ul className="articles">
           {
@@ -79,7 +80,7 @@ const Article = ({
 
   return (
     <div className="articles">
-    {componentStatus ? ( <div>Page is loading......</div> ) :
+    {isLoading ? ( <div>Page is loading......</div> ) :
       (
         buildArticles(data, srcType)
       )}
