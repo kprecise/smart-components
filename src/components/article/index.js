@@ -1,116 +1,93 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios';
-
-const JSONData = [
-  {
-    id: 1,
-    content: 'fasdfas safdsafdsadfsad',
-    link: {
-      href: 'sadfsadfsadfsda',
-      label: 'dsaslkdfl',
-      alt: 'sdafasd fasdfsadfsa dfsadsd'
-    }
-  },
-  {
-    id: 2,
-    content: 'fasdfas safdsafdsadfsad',
-    link: {
-      href: 'sadfsadfsadfsda',
-      label: 'dsaslkdfl',
-      alt: 'sdafasd fasdfsadfsa dfsadsd'
-    }
-  },
-  {
-    id: 3,
-    content: 'fasdfas safdsafdsadfsad',
-    link: {
-      href: 'sadfsadfsadfsda',
-      label: 'dsaslkdfl',
-      alt: 'sdafasd fasdfsadfsa dfsadsd'
-    }
-  }
-]
-
+import React, { useEffect, useState } from "react"
+import axios from 'axios'
+import './styles.scss'
 
 const Article = ({
   srcType,
   dataSrc
 }) => {
 
-  const [status, setStatus] = useState('loading')
-  const [dataPath, displayData] = useState({});
-
-  // useEffect(async () => {
-  //   const result = await axios(
-  //     dataSrc,
-  //   );
-  //   setStatus('loaded')
-  //   displayData(result.data);
-  //   console.log(dataPath)
-  // });
-
+  const [componentStatus, isLoading] = useState(true)
+  const [data, setData] = useState([])
+  const [isError, setError] = useState(false)
 
   useEffect(() => {
-    setStatus('loaded')
-    axios.get(dataSrc)
-    .then(function (response) {
-      displayData(response.data)
-      console.log('displayData', displayData)
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    if (srcType === DATAFORMAT.API) {
+      const fetchData = async () => {
+        try {
+          const result = await axios(dataSrc);
+          setData(result.data);
+          isLoading(false)
+        } catch (error) {
+          setError(true)
+        }
+      }
+      fetchData();
+    } else {
+      setData(dataSrc);
+      isLoading(false)
+    }
   }, []);
 
-
-  // const callData = (type, data) => {
-  //   if (type === "API") {
-  //     axios.get(data)
-  //       .then(function (response) {
-  //         console.log(response.data);
-  //         buildArticles(response.data)
-  //       })
-  //       .catch(function (error) {
-  //         console.log(error);
-  //       });
-  //   } else if (type === "JSON") {
-  //     buildArticles(data)
-  //   } else {
-  //     return (
-  //       <div>No data source</div>
-  //     )
-  //   }
-  // }
-
-  const buildArticles = (responseData) => {
-    console.log('buildArticles called', responseData)
-    return (
-      responseData.map(article => (
-        <li>
-          <article>
-            <div>
-              <h2>{article.name}</h2>
-              <p>Capital: {article.capital}</p>
-              <p>Population: {article.population}</p>
-              <p>
-                <img src={article.flag} />
-              </p>
-            </div>
-            <a href="">link</a>
-          </article>
-        </li>
-        )
+  const buildArticles = (responseData, source) => {
+    if (source === DATAFORMAT.API) {
+      return (
+        <ul className="articles">
+          {
+            responseData.map(article => (
+              <li key={article.numericCode}>
+                <article>
+                  <h2>{article.name}</h2>
+                  <p>Capital: {article.capital}</p>
+                  <p>Population: {article.population}</p>
+                  <p>
+                    <img src={article.flag} />
+                  </p>
+                </article>
+              </li>
+              )
+            )
+          }
+        </ul>
       )
-    )
+    } else if (source === DATAFORMAT.JSON) {
+      return (
+        <ul className="articles">
+          {
+            responseData.map(article => (
+              <li key={article.id}>
+                <article>
+                  <h2>{article.heading}</h2>
+                  <p>{article.content}</p>
+                  <p>
+                    <img src={article.image}/>
+                  </p>
+                  <a href="">link</a>
+                </article>
+              </li>
+              )
+            )
+          }
+        </ul>
+      )
+    } else {
+      return (
+        <div>No data provided</div>
+      )
+    }
   }
 
   return (
-    <ul className="articles">
-      {status === 'loading' ? 'content is loading' : 'loaded'
+    <div className="articles">
+    {componentStatus ? ( <div>Page is loading......</div> ) :
+      (
+        buildArticles(data, srcType)
+      )}
+      {isError && (
+        <div>There was an issue receiving the data from the API</div>
+      )
       }
-
-      {/* {callData(srcType, dataSrc)} */}
-    </ul>
+    </div>
   )
 }
 

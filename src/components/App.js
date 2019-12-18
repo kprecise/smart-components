@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from 'reactstrap';
 import Nav from './nav';
 import { links } from '../data.js'
+import { JSONData } from '../data.js'
 import Article from './article';
 import "./index.css";
 
@@ -24,8 +25,8 @@ const App = () => {
           <Col xs="12">
             <h2>Article</h2>
             <Article
-              srcType="API"
-              dataSrc="https://restcountries.eu/rest/v2/all"
+              srcType="JSON"
+              dataSrc={JSONData}
             />
           </Col>
         </Row>
