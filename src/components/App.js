@@ -1,9 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from 'reactstrap';
+import Header from './header';
 import Nav from './nav';
+import Article from './article';
 import { links } from '../data.js'
 import { JSONData } from '../data.js'
-import Article from './article';
 import "./index.css";
 
 const App = () => {
@@ -11,7 +12,16 @@ const App = () => {
       <Container>
         <Row>
           <Col xs="12">
-            <h1>Smart Components</h1>
+            <Header
+              backgroundImage="https://www.blackhillsbadlands.com/sites/default/files/styles/bhb40_page_hero/public/photos/events/5th-annual-holiday-bazaar/abstract-background-blur-255377.jpg"
+              backgroundColor="green"
+              text="This is the heading"
+              textColor="#073F6B"
+              textSize="4rem"
+              padding={false}
+              margin={true}
+              minHeight="200px"
+            />
           </Col>
         </Row>
           <Row>

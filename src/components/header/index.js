@@ -1,12 +1,30 @@
-import React from "react";
-import "./index.scss";
+import React, { useEffect} from "react"
+import { BackgroundContainer, Heading } from "./styledComponents.js"
 
-const Header = () => {
+const Header = ({
+  backgroundImage,
+  backgroundColor,
+  text,
+  textColor,
+  textSize,
+  padding,
+  margin,
+  minHeight
+                }) => {
+
+  // useEffect = () => {
+  //   if (textSize === 'xsmall') {
+  //
+  //   } else if
+  // }
+
     return (
         <header className="header">
-            <h1>React Lifecycle Methods</h1>
+          <BackgroundContainer backgroundColor={backgroundColor} backgroundImage={backgroundImage} padding={padding} margin={margin} minHeight={minHeight}>
+            <Heading textSize={textSize} textColor={textColor}>{text}</Heading>
+          </BackgroundContainer>
         </header>
     )
 };
 
-export default Header;
+export default Header
