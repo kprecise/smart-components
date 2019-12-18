@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 const JSONData = [
@@ -37,24 +37,50 @@ const Article = ({
   dataSrc
 }) => {
 
-  const callData = (type, data) => {
-    if (type === "API") {
-      const result = axios.get(data)
-        .then(function (result) {
-          console.log(result.data);
-          buildArticles(result.data)
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    } else if (type === "JSON") {
-      buildArticles(data)
-    } else {
-      return (
-        <div>No data source</div>
-      )
-    }
-  }
+  const [status, setStatus] = useState('loading')
+  const [dataPath, displayData] = useState({});
+
+  // useEffect(async () => {
+  //   const result = await axios(
+  //     dataSrc,
+  //   );
+  //   setStatus('loaded')
+  //   displayData(result.data);
+  //   console.log(dataPath)
+  // });
+
+
+  useEffect(() => {
+    setStatus('loaded')
+    axios.get(dataSrc)
+    .then(function (response) {
+      displayData(response.data)
+      console.log('displayData', displayData)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }, []);
+
+
+  // const callData = (type, data) => {
+  //   if (type === "API") {
+  //     axios.get(data)
+  //       .then(function (response) {
+  //         console.log(response.data);
+  //         buildArticles(response.data)
+  //       })
+  //       .catch(function (error) {
+  //         console.log(error);
+  //       });
+  //   } else if (type === "JSON") {
+  //     buildArticles(data)
+  //   } else {
+  //     return (
+  //       <div>No data source</div>
+  //     )
+  //   }
+  // }
 
   const buildArticles = (responseData) => {
     console.log('buildArticles called', responseData)
@@ -80,7 +106,10 @@ const Article = ({
 
   return (
     <ul className="articles">
-      {callData(srcType, dataSrc)}
+      {status === 'loading' ? 'content is loading' : 'loaded'
+      }
+
+      {/* {callData(srcType, dataSrc)} */}
     </ul>
   )
 }
