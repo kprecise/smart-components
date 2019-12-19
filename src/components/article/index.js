@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react"
-import axios from 'axios'
-import { DATAFORMAT } from './constants'
-import './styles.scss'
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import { DATAFORMAT } from './constants';
+import './styles.scss';
 
 const Article = ({
   srcType,
   dataSrc
 }) => {
 
-  const [isLoading, setLoading] = useState(true)
-  const [data, setData] = useState([])
-  const [isError, setError] = useState(false)
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [isError, setError] = useState(false);
 
   useEffect(() => {
     if (srcType === DATAFORMAT.API) {
@@ -18,15 +18,15 @@ const Article = ({
         try {
           const result = await axios(dataSrc);
           setData(result.data);
-          setLoading(false)
+          setLoading(false);
         } catch (error) {
-          setError(true)
+          setError(true);
         }
       }
       fetchData();
     } else {
       setData(dataSrc);
-      setLoading(false)
+      setLoading(false);
     }
   }, []);
 

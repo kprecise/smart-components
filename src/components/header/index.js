@@ -1,30 +1,37 @@
-import React, { useEffect} from "react"
-import { BackgroundContainer, Heading } from "./styledComponents.js"
+import React from "react";
+import { BackgroundContainer, Heading, AspectRatioContainer, AspectRatioInner, LogoImage, HeaderContainer } from "./styledComponents.js";
 
 const Header = ({
   backgroundImage,
-  backgroundColor,
   text,
-  textColor,
-  textSize,
-  padding,
-  margin,
-  minHeight
-                }) => {
+  logo,
+  aspectRatio
+  }) => {
 
-  // useEffect = () => {
-  //   if (textSize === 'xsmall') {
-  //
-  //   } else if
-  // }
+  const isEmptyObject = (obj) => {
+    for(let key in obj) {
+      if(obj.hasOwnProperty(key))
+        return false;
+    }
+    return true;
+  };
 
-    return (
-        <header className="header">
-          <BackgroundContainer backgroundColor={backgroundColor} backgroundImage={backgroundImage} padding={padding} margin={margin} minHeight={minHeight}>
-            <Heading textSize={textSize} textColor={textColor}>{text}</Heading>
-          </BackgroundContainer>
-        </header>
-    )
+  const isLogo = !isEmptyObject(logo);
+
+  return (
+      <HeaderContainer height={backgroundImage.height}>
+        <AspectRatioContainer>
+          <AspectRatioInner aspectRatio={aspectRatio}>
+            <BackgroundContainer backgroundImage={backgroundImage.source} backgroundImageHeight={backgroundImage.height}>
+              <Heading>{text}</Heading>
+              {isLogo &&
+              <LogoImage src={logo.source} imgWidth={logo.width} imgHeight={logo.height}/>
+              }
+            </BackgroundContainer>
+          </AspectRatioInner>
+        </AspectRatioContainer>
+      </HeaderContainer>
+  )
 };
 
-export default Header
+export default Header;

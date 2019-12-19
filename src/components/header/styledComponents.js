@@ -1,16 +1,43 @@
 import styled from 'styled-components'
+import { COLORVARIABLES, TEXTSIZE, SPACINGVARIABLES } from './styleVariables.js'
 
-export const BackgroundContainer = styled.div`
-  background-image: url(${props => props.backgroundImage || "none"});
-  background-color: ${props => props.backgroundColor || "white"};
-  padding: ${props => props.padding ? "2rem" : "0"};
-  margin: ${props => props.padding ? "0 0 2rem" : "0"};
-  width: 100%;
-  min-height: ${props => props.minHeight || "inherit"}
-  background-size: cover;
-`;
+export const HeaderContainer = styled.div(({ height }) => ({
+  height: height + "px"
+}));
 
-export const Heading = styled.h1`
-  color: ${props => props.textColor || "white"};
-  font-size: ${props => props.textSize || "2rem"};
-`;
+export const BackgroundContainer = styled.div(({ backgroundImage, backgroundImageHeight }) => ({
+  backgroundImage: `url(${backgroundImage})` || 'none',
+  backgroundColor: COLORVARIABLES.BACKGROUND || 'transparent',
+  padding: SPACINGVARIABLES.PADDING,
+  margin: SPACINGVARIABLES.MARGIN,
+  width: '100%',
+  height: backgroundImageHeight + "px" || 'inherit',
+  backgroundSize: 'cover'
+}));
+
+export const Heading = styled.h1({
+  color: COLORVARIABLES.FOREGROUND || 'white',
+  fontSize: TEXTSIZE
+});
+
+export const AspectRatioContainer = styled.div(({ aspectRatio }) => ({
+  position: 'relative',
+  '&:before': {
+    display: 'block',
+    content: '',
+    width: '100%',
+    paddingTop: aspectRatio + "%" }
+}));
+
+export const AspectRatioInner = styled.div({
+  position: 'absolute',
+  top: '0',
+  left: '0',
+  right: '0',
+  bottom: '0'
+});
+
+export const LogoImage = styled.img(({ imgWidth, imgHeight }) => ({
+  'width': imgWidth,
+  'height': imgHeight
+}));
