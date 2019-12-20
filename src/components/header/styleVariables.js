@@ -1,11 +1,11 @@
 export const COLORVARIABLES = {
-  BACKGROUND: 'green',
-  FOREGROUND: 'grey'
+  BACKGROUND: 'white',
+  FOREGROUND: 'green'
 };
 
 export const TEXTSIZE = '2rem';
 
 export const SPACINGVARIABLES = {
-  MARGIN: '0 1rem',
+  MARGIN: '1rem 0',
   PADDING: '0'
 };

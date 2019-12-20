@@ -1,11 +1,11 @@
 import React from "react";
-import { BackgroundContainer, Heading, AspectRatioContainer, AspectRatioInner, LogoImage, HeaderContainer } from "./styledComponents.js";
+import { Heading, HeaderWrapper } from "./styledComponents.js";
+import './styles.scss'
 
 const Header = ({
   backgroundImage,
   text,
-  logo,
-  aspectRatio
+  logo
   }) => {
 
   const isEmptyObject = (obj) => {
@@ -19,18 +19,15 @@ const Header = ({
   const isLogo = !isEmptyObject(logo);
 
   return (
-      <HeaderContainer height={backgroundImage.height}>
-        <AspectRatioContainer>
-          <AspectRatioInner aspectRatio={aspectRatio}>
-            <BackgroundContainer backgroundImage={backgroundImage.source} backgroundImageHeight={backgroundImage.height}>
-              <Heading>{text}</Heading>
-              {isLogo &&
-              <LogoImage src={logo.source} imgWidth={logo.width} imgHeight={logo.height}/>
-              }
-            </BackgroundContainer>
-          </AspectRatioInner>
-        </AspectRatioContainer>
-      </HeaderContainer>
+    <header className="header">
+      <HeaderWrapper>
+        <Heading>{text}</Heading>
+        {isLogo &&
+        <img className="logo" src={logo} />
+        }
+        <img className="main" src={backgroundImage} />
+      </HeaderWrapper>
+    </header>
   )
 };
 
