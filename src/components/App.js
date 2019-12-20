@@ -2,15 +2,21 @@ import React from "react";
 import { Container, Row, Col } from 'reactstrap';
 import Header from './header';
 import Nav from './nav';
+import OrderForm from './orderform';
 import Article from './article';
 import { links } from '../data.js';
-// import { JSONData } from '../data.js'
+import { JSONData } from '../data.js'
 import "./index.css";
 import SimpleSlider from './slick';
 
 const App = () => {
   return (
       <Container>
+        <Row>
+          <Col xs="12">
+            <OrderForm />
+          </Col>
+        </Row>
         <Row>
           <Col xs="12">
             <Header
@@ -25,7 +31,7 @@ const App = () => {
             <SimpleSlider />
           </Col>
         </Row>
-          <Row>
+        <Row>
               <Col xs="12">
                   <h2>Navigation</h2>
                   <Nav links={links} />
