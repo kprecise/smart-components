@@ -3,7 +3,7 @@ import { Heading, HeaderWrapper } from "./styledComponents.js";
 import './styles.scss'
 
 const Header = ({
-  backgroundImage,
+  mainImg,
   text,
   logo
   }) => {
@@ -25,7 +25,7 @@ const Header = ({
         {isLogo &&
         <img className="logo" src={logo} />
         }
-        <img className="main" src={backgroundImage} />
+        <img className="main" src={mainImg} />
       </HeaderWrapper>
     </header>
   )
