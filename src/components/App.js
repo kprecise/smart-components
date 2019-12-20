@@ -4,8 +4,9 @@ import Header from './header';
 import Nav from './nav';
 import Article from './article';
 import { links } from '../data.js';
-import { JSONData } from '../data.js'
+// import { JSONData } from '../data.js'
 import "./index.css";
+import SimpleSlider from './slick';
 
 const App = () => {
   return (
@@ -17,6 +18,11 @@ const App = () => {
               logo="https://carlisletheacarlisletheatre.org/images/football-logo-7.png"
               text="This is the heading"
             />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs="12">
+            <SimpleSlider />
           </Col>
         </Row>
           <Row>
