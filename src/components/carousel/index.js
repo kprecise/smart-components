@@ -5,10 +5,10 @@ import "./index.scss";
 const SimpleSlider = () =>  {
 
   const data = [
-    {id: 1, background: 'https://via.placeholder.com/1200x400/E5E530', title: 'This is cool!'},
-    {id: 2, background: 'https://via.placeholder.com/1200x400/808080/000000', title: 'Another heading!'},
-    {id: 3, background: 'https://via.placeholder.com/1200x400/17BA0E/000000', title: 'More news!'},
-    {id: 4, background: 'https://via.placeholder.com/1200x400/C9265F/FFFFFF', title: 'Fascinating stuff!'}
+    {id: 1, background: 'https://via.placeholder.com/1110x400/E5E530', title: 'This is cool!'},
+    {id: 2, background: 'https://via.placeholder.com/1110x400/808080/000000', title: 'Another heading!'},
+    {id: 3, background: 'https://via.placeholder.com/1110x400/17BA0E/000000', title: 'More news!'},
+    {id: 4, background: 'https://via.placeholder.com/1110x400/C9265F/FFFFFF', title: 'Fascinating stuff!'}
   ];
 
   const settings = {

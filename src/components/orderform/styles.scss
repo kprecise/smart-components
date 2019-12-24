@@ -1,0 +1,14 @@
+Form.orderForm {
+    .productInfo {
+        .productDescription {
+            display: inline;
+            vertical-align: text-top;
+        }
+    }
+    .push { 
+        float: right; 
+    }
+    .pull {
+        float: left;
+    }
+}

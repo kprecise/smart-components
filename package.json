@@ -26,7 +26,8 @@
     "sass-loader": "^7.0.3",
     "save": "^2.3.2",
     "scss-loader": "0.0.1",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
