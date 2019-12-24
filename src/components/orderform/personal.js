@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
-import { Row, Col } from 'reactstrap';
-import axios from 'axios';
+import React from "react";
+import { FormGroup, Label, Input } from 'reactstrap';
 
 const PersonalInfo = ({
     title

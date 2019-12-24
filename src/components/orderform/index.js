@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
-import { Row, Col } from 'reactstrap';
-import axios from 'axios';
+import React from "react";
+import { Button } from 'reactstrap'
 import data from './data.json'
 import Products from './products'
 import PersonalInfo from './personal'

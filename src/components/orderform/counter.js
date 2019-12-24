@@ -1,6 +1,4 @@
-
-
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, FormGroup, Input } from 'reactstrap'
 
 const Counter = () => {

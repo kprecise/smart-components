@@ -26,8 +26,8 @@ const SimpleSlider = () =>  {
           {
             data.map(slide => {
               return (
-                <div className="slider-item">
-                  <img src={slide.background} key={slide.id} />
+                <div className="slider-item" key={slide.id}>
+                  <img src={slide.background} />
                   <h2>{slide.title}</h2>
                 </div>
               )

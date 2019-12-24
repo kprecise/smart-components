@@ -32,10 +32,13 @@ const Article = ({
 
   const buildArticles = (responseData, sourceFormat) => {
     if (sourceFormat === DATAFORMAT.API) {
+      const byPopulation = responseData.filter(function (country) {
+        return country.population > 30000000;
+      });
       return (
         <ul className="articles">
           {
-            responseData.map(article => (
+            byPopulation.map(article => (
               <li key={article.numericCode}>
                 <article>
                   <h2>{article.name}</h2>
