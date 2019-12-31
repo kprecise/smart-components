@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from 'reactstrap';
 import Header from './header';
-import Nav from './nav';
+import Navigation from './nav';
 import OrderForm from './orderform';
 import Article from './article';
 import SimpleSlider from './carousel';
@@ -34,7 +34,13 @@ const App = () => {
         <Row>
             <Col xs="12">
                 <h2>Navigation</h2>
-                <Nav links={links} />
+                <Navigation 
+                  links={links} 
+                  tabs={false}
+                  pills={true}
+                  vertical={false}
+                  justified={false}
+                  />
             </Col>
         </Row>
         <Row>
