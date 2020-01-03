@@ -13,7 +13,7 @@ const useCart = (theOrder) => {
 
   useEffect(() => {
     if(!isEmptyObject(theOrder)) {
-      setCartStatus(true)
+      setCartStatus(true);
     }
   },[]);
 
@@ -43,7 +43,7 @@ const Cart = ({order}) => {
     )
   }
 
-  const IsCart = useCart(order)
+  const IsCart = useCart(order);
   return (
     <div>Cart Status: {IsCart ? cartNotEmpty(order): cartEmpty()}</div>
   )
