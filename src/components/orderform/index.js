@@ -6,9 +6,6 @@ import PersonalInfo from './personal'
 import './styles.scss';
 
 const OrderForm = () => {
-  const submitForm = event => {
-    event.preventDefault()
-  }
   return (
     <div className="orderForm">
       <h2>Order Form</h2>

@@ -54,7 +54,7 @@ const Article = ({
           }
         </ul>
       )
-    } else if (source === DATAFORMAT.JSON) {
+    } else if (sourceFormat === DATAFORMAT.JSON) {
       return (
         <ul className="articles">
           {

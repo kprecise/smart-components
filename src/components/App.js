@@ -1,13 +1,18 @@
 import React from "react";
 import { Container, Row, Col } from 'reactstrap';
 import Header from './header';
-import Navigation from './nav';
+import Navigation from './navigation';
 import OrderForm from './orderform';
 import Article from './article';
-import SimpleSlider from './carousel';
+import Carousel from './carousel';
 import Cart from './cart';
-import { links } from '../data.js';
-// import { JSONData } from '../data.js'
+import {
+  navigationLinks,
+  shoppingBasket,
+  carouselData,
+  carouselSettings
+} from '../data.js';
+import { JSONData } from '../data.js'
 import "./index.css";
 
 const App = () => {
@@ -15,22 +20,7 @@ const App = () => {
       <Container>
         <Row>
           <Col xs="12">
-            <Cart order={
-              [
-                {
-                  id: 1,
-                  heading: 'Lorem ipsum dolor sit amet',
-                  content: 'Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Purus sit amet luctus venenatis lectus. Non enim praesent elementum facilisis leo vel. Nullam ac tortor vitae purus faucibus ornare. Diam sollicitudin tempor id eu nisl nunc mi. Ornare suspendisse sed nisi lacus. ',
-                  image:'https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com'
-                },
-                {
-                  id: 2,
-                  heading: 'Lorem ipsum dolor sit amet',
-                  content: 'Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Purus sit amet luctus venenatis lectus. Non enim praesent elementum facilisis leo vel. Nullam ac tortor vitae purus faucibus ornare. Diam sollicitudin tempor id eu nisl nunc mi. Ornare suspendisse sed nisi lacus. ',
-                  image:'https://via.placeholder.com/150/CC0000/808080 ?Text=Digital.com'
-                }
-              ]
-            } />
+            <Cart order={shoppingBasket} />
           </Col>
         </Row>
         <Row>
@@ -49,14 +39,17 @@ const App = () => {
         </Row>
         <Row>
           <Col xs="12">
-            <SimpleSlider />
+            <Carousel
+              data={carouselData}
+              settings={carouselSettings}
+            />
           </Col>
         </Row>
         <Row>
             <Col xs="12">
                 <h2>Navigation</h2>
                 <Navigation 
-                  links={links} 
+                  links={navigationLinks}
                   tabs={false}
                   pills={true}
                   vertical={false}

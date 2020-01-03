@@ -1,4 +1,6 @@
-export const links = [
+
+// Navigation
+export const navigationLinks = [
   {id: 'ZZ-67', name: 'Home', href: '/home', alt: 'Home', secondaryNav: false},
   {
     id: 'GH-92',
@@ -13,6 +15,7 @@ export const links = [
   },
 ];
 
+// Articles
 export const JSONData = [
   {
     id: 1,
@@ -48,3 +51,36 @@ export const JSONData = [
     }
   }
 ];
+
+// Cart
+export const shoppingBasket = [
+  {
+    id: 1,
+    heading: 'Lorem ipsum dolor sit amet',
+    content: 'Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Purus sit amet luctus venenatis lectus. Non enim praesent elementum facilisis leo vel. Nullam ac tortor vitae purus faucibus ornare. Diam sollicitudin tempor id eu nisl nunc mi. Ornare suspendisse sed nisi lacus. ',
+    image:'https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com'
+  },
+  {
+    id: 2,
+    heading: 'Lorem ipsum dolor sit amet',
+    content: 'Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Purus sit amet luctus venenatis lectus. Non enim praesent elementum facilisis leo vel. Nullam ac tortor vitae purus faucibus ornare. Diam sollicitudin tempor id eu nisl nunc mi. Ornare suspendisse sed nisi lacus. ',
+    image:'https://via.placeholder.com/150/CC0000/808080 ?Text=Digital.com'
+  }
+]
+
+// Carousel
+export const carouselData = [
+  {id: 1, background: 'https://via.placeholder.com/1110x400/E5E530', title: 'This is cool!'},
+  {id: 2, background: 'https://via.placeholder.com/1110x400/808080/000000', title: 'Another heading!'},
+  {id: 3, background: 'https://via.placeholder.com/1110x400/17BA0E/000000', title: 'More news!'},
+  {id: 4, background: 'https://via.placeholder.com/1110x400/C9265F/FFFFFF', title: 'Fascinating stuff!'}
+];
+
+export const carouselSettings = {
+  dots: true,
+  arrows: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1
+};
