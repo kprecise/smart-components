@@ -21,23 +21,13 @@ const App = () => {
                   id: 1,
                   heading: 'Lorem ipsum dolor sit amet',
                   content: 'Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Purus sit amet luctus venenatis lectus. Non enim praesent elementum facilisis leo vel. Nullam ac tortor vitae purus faucibus ornare. Diam sollicitudin tempor id eu nisl nunc mi. Ornare suspendisse sed nisi lacus. ',
-                  image:'https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com',
-                  link: {
-                    href: '/',
-                    label: 'See this',
-                    alt: 'See this'
-                  }
+                  image:'https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com'
                 },
                 {
                   id: 2,
                   heading: 'Lorem ipsum dolor sit amet',
                   content: 'Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Purus sit amet luctus venenatis lectus. Non enim praesent elementum facilisis leo vel. Nullam ac tortor vitae purus faucibus ornare. Diam sollicitudin tempor id eu nisl nunc mi. Ornare suspendisse sed nisi lacus. ',
-                  image:'https://via.placeholder.com/150/0000FF/808080 ?Text=Digital.com',
-                  link: {
-                    href: '/',
-                    label: 'See this',
-                    alt: 'See this'
-                  }
+                  image:'https://via.placeholder.com/150/CC0000/808080 ?Text=Digital.com'
                 }
               ]
             } />
