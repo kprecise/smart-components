@@ -1,98 +1,25 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios';
-import { DATAFORMAT } from './constants';
-import './styles.scss';
+import React from "react";
+import { Container, Row, Col } from 'reactstrap';
+import Article from './article';
 
-const Article = ({
-  srcType,
-  dataSrc
-}) => {
+import "./styles.scss";
 
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
-  const [isError, setError] = useState(false);
-
-  useEffect(() => {
-    if (srcType === DATAFORMAT.API) {
-      const fetchData = async () => {
-        try {
-          const result = await axios(dataSrc);
-          setData(result.data);
-          setLoading(false);
-        } catch (error) {
-          setError(true);
-        }
-      }
-      fetchData();
-    } else {
-      setData(dataSrc);
-      setLoading(false);
-    }
-  }, []);
-
-  const buildArticles = (responseData, sourceFormat) => {
-    if (sourceFormat === DATAFORMAT.API) {
-      const byPopulation = responseData.filter(function (country) {
-        return country.population > 30000000;
-      });
-      return (
-        <ul className="articles">
-          {
-            byPopulation.map(article => (
-              <li key={article.numericCode}>
-                <article>
-                  <h2>{article.name}</h2>
-                  <p>Capital: {article.capital}</p>
-                  <p>Population: {article.population}</p>
-                  <p>
-                    <img src={article.flag} />
-                  </p>
-                </article>
-              </li>
-              )
-            )
-          }
-        </ul>
-      )
-    } else if (sourceFormat === DATAFORMAT.JSON) {
-      return (
-        <ul className="articles">
-          {
-            responseData.map(article => (
-              <li key={article.id}>
-                <article>
-                  <h2>{article.heading}</h2>
-                  <p>{article.content}</p>
-                  <p>
-                    <img src={article.image}/>
-                  </p>
-                  <a href="">link</a>
-                </article>
-              </li>
-              )
-            )
-          }
-        </ul>
-      )
-    } else {
-      return (
-        <div>No data provided</div>
-      )
-    }
-  }
-
+const ArticlePage = () => {
   return (
-    <div className="articles">
-    {isLoading ? ( <div>Page is loading......</div> ) :
-      (
-        buildArticles(data, srcType)
-      )}
-      {isError && (
-        <div>There was an issue receiving the data from the API</div>
-      )
-      }
-    </div>
+    <Container>
+      <Row>
+        <Col xs="12">
+          <h2>Article</h2>
+          <Article
+            // srcType="JSON"
+            // dataSrc={JSONData}
+            srcType="API"
+            dataSrc="https://restcountries.eu/rest/v2/all"
+          />
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
-export default Article
+export default ArticlePage;

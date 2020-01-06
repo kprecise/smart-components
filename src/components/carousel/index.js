@@ -1,30 +1,23 @@
 import React from "react";
-import Slider from "react-slick";
+import { Container, Row, Col } from 'reactstrap';
+import Carousel from './carousel';
+import { carouselData, carouselSettings } from '../../data.js';
+
 import "./index.scss";
 
-const Carousel = (
-  {
-    data,
-    carouselSettings
-  }
-) =>  {
-
+const App = () => {
   return (
-    <div className="slick-container">
-        <Slider {...carouselSettings}>
-          {
-            data.map(slide => {
-              return (
-                <div className="slider-item" key={slide.id}>
-                  <img src={slide.background} />
-                  <h2>{slide.title}</h2>
-                </div>
-              )
-            })
-          }
-        </Slider>
-  </div>
-  );
-};
+    <Container>
+      <Row>
+        <Col xs="12">
+          <Carousel
+            data={carouselData}
+            settings={carouselSettings}
+          />
+        </Col>
+      </Row>
+    </Container>
+  )
+}
 
-export default Carousel;
+export default App;

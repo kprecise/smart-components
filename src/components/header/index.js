@@ -1,24 +1,23 @@
 import React from "react";
-import { Heading, HeaderWrapper } from "./styledComponents.js";
-import './styles.scss'
+import { Container, Row, Col } from 'reactstrap';
+import Header from './header';
 
-const Header = ({
-  mainImg,
-  text,
-  logo
-  }) => {
+import './styles.scss';
 
+const HeaderPage = () => {
   return (
-    <header className="header">
-      <HeaderWrapper>
-        <Heading>{text}</Heading>
-        {logo &&
-        <img className="logo" src={logo} />
-        }
-        <img className="main" src={mainImg} />
-      </HeaderWrapper>
-    </header>
+    <Container>
+      <Row>
+        <Col xs="12">
+          <Header
+            mainImg="https://www.blackhillsbadlands.com/sites/default/files/styles/bhb40_page_hero/public/photos/events/5th-annual-holiday-bazaar/abstract-background-blur-255377.jpg"
+            logo="https://carlisletheacarlisletheatre.org/images/football-logo-7.png"
+            text="This is the heading"
+          />
+        </Col>
+      </Row>
+    </Container>
   )
-};
+}
 
-export default Header;
+export default HeaderPage;

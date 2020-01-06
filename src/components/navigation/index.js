@@ -1,55 +1,27 @@
-import React, { useState } from 'react';
-import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
-import "./index.scss";
+import React from "react";
+import { Container, Row, Col } from 'reactstrap';
+import Navigation from './navigation';
+import { navigationLinks } from '../../data.js';
 
-const Navigation = (
-  {
-    links,
-    tabs,
-    pills,
-    vertical,
-    justified
-  }
-) => {
+import "./styles.scss";
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const toggle = () => setDropdownOpen(!dropdownOpen);
-
+const NavigationPage = () => {
   return (
-    <Nav tabs={tabs} pills={pills} vertical={vertical} justified={justified}>
-    {
-      links.map(primaryItem => (
-        <React.Fragment key={primaryItem.id}>
-          <NavItem className="navItem">
-          { !primaryItem.secondaryNav &&
-            <NavLink
-              href={primaryItem.href}
-              name={primaryItem.alt}>
-              {primaryItem.name}
-            </NavLink>
-          }
-          </NavItem>
-          { primaryItem.secondaryNav &&
-            <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
-              <DropdownToggle nav caret>
-                {primaryItem.name}
-              </DropdownToggle>
-              <DropdownMenu>
-              {
-                primaryItem.secondaryNavItem.map(secondaryItem => (
-                  <DropdownItem key={secondaryItem.id}>{secondaryItem.name}</DropdownItem>
-                  )
-                )
-              }
-              </DropdownMenu>
-            </Dropdown>
-          }
-        </React.Fragment>
-      ))
-    }        
-    </Nav>
+    <Container>
+      <Row>
+          <Col xs="12">
+              <h2>Navigation</h2>
+              <Navigation
+                links={navigationLinks}
+                tabs={false}
+                pills={true}
+                vertical={false}
+                justified={false}
+                />
+          </Col>
+      </Row>
+    </Container>
   )
-};
+}
 
-export default Navigation;
+export default NavigationPage;
