@@ -1,7 +1,7 @@
 # Various React Components Using React Hooks
 
-## Setup Using Front End Starter Pack (React, Webpack 4, Reactstrap, SASS)
-This is a customised front end boilerplate using Webpack 4
+## Technologies
+This is a customised front end boilerplate using Webpack 4, React, Reactstrap, SASS and Cypress for Unit Testing.
 
 ## Components
 
