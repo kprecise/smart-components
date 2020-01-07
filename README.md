@@ -78,7 +78,9 @@ npm run build
 
 ## Cypress
 
+``` bash
 node_modules/.bin/cypress open
+```
 
 ### Author
 
