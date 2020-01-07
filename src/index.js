@@ -19,25 +19,25 @@ const routing = (
         <Col xs="12">
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" id="home">Home</Link>
             </li>
             <li>
-              <Link to="/header">Header</Link>
+              <Link to="/header" id="header">Header</Link>
             </li>
             <li>
-              <Link to="/article">Article</Link>
+              <Link to="/article" id="article">Article</Link>
             </li>
             <li>
-              <Link to="/carousel">Carousel</Link>
+              <Link to="/carousel" id="carousel">Carousel</Link>
             </li>
             <li>
-              <Link to="/cart">Cart</Link>
+              <Link to="/cart" id="cart">Cart</Link>
             </li>
             <li>
-              <Link to="/orderform">Order Form</Link>
+              <Link to="/orderform" id="orderform">Order Form</Link>
             </li>
             <li>
-              <Link to="/navigation">Navigation</Link>
+              <Link to="/navigation" id="navigation">Navigation</Link>
             </li>
           </ul>
         </Col>

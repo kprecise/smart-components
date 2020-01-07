@@ -75,6 +75,11 @@ npm run dev
 # Build for production
 npm run build
 ```
+
+## Cypress
+
+node_modules/.bin/cypress open
+
 ### Author
 
 Kyri Kyriacou
