@@ -5,7 +5,7 @@ const props = {
 }
 
 describe('Header page', function() {
-  it('Page loads component correctly', function() {
+  it('Passes correct property values from Header component', function() {
     cy.visit('/header')
     cy.get('h1').should('have.text', props.text)
     cy.get('img.main').should(($el) => {
