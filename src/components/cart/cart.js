@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Row, Col } from 'reactstrap';
 
 const useCart = (theOrder) => {
   const [cartStatus, setCartStatus] = useState(false);
@@ -30,12 +31,20 @@ const Cart = ({order}) => {
   const cartNotEmpty = (passedOrder) => {
     return (
       <div>
-        <p>Your cart has items in it</p>
+        <p>Your cart has <strong>{passedOrder.length}</strong> in it</p>
         { passedOrder.map(item => (
           <div key={item.id}>
-            Item: {item.heading}<br/>
-            Description: {item.content}<br />
-            <img src={item.image} />
+            <Row>
+              <Col xs="6">
+                Item: {item.heading}<br/>
+                Price: ${item.price}<br />
+                Quantity: ${item.quantity}<br />
+              </Col>
+              <Col xs="6">
+                <img src={item.image} />
+              </Col>              
+            </Row>
+            <hr/>
           </div>
           )
         )}
@@ -45,7 +54,7 @@ const Cart = ({order}) => {
 
   const IsCart = useCart(order);
   return (
-    <div>Cart Status: {IsCart ? cartNotEmpty(order): cartEmpty()}</div>
+    <div>{IsCart ? cartNotEmpty(order): cartEmpty()}</div>
   )
 }
 

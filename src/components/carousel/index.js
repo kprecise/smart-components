@@ -10,6 +10,7 @@ const App = () => {
     <Container>
       <Row>
         <Col xs="12">
+          <h2>Carousel</h2>
           <Carousel
             data={carouselData}
             settings={carouselSettings}

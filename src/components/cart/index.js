@@ -8,6 +8,7 @@ const CartPage = () => {
     <Container>
       <Row>
         <Col xs="12">
+          <h2>Cart</h2> 
           <Cart order={shoppingBasket} />
         </Col>
       </Row>
