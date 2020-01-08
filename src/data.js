@@ -1,18 +1,22 @@
 
 // Navigation
 export const navigationLinks = [
-  {id: 'ZZ-67', name: 'Home', href: '/home', alt: 'Home', secondaryNav: false},
   {
-    id: 'GH-92',
+    id: 'home', 
+    name: 'Home', 
+    href: '/home', 
+    secondaryNav: false
+  },
+  {
+    id: 'about',
     name: 'About', 
     href: '/about', 
-    alt: 'About', 
     secondaryNav: true,
     secondaryNavItem: [
-      {id: 2, name: 'link1', href: '#link1', alt: 'link1'},
-      {id: 7, name: 'link2', href: '#link2', alt: 'link2'}
+      {id: 'link1', name: 'link1', href: '#link1', alt: 'link1'},
+      {id: 'link2', name: 'link2', href: '#link2', alt: 'link2'}
     ]
-  },
+  }
 ];
 
 // Articles

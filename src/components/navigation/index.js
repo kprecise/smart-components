@@ -9,16 +9,16 @@ const NavigationPage = () => {
   return (
     <Container>
       <Row>
-          <Col xs="12">
-              <h2>Navigation</h2>
-              <Navigation
-                links={navigationLinks}
-                tabs={false}
-                pills={true}
-                vertical={false}
-                justified={false}
-                />
-          </Col>
+        <Col xs="12">
+          <h2>Navigation</h2>
+          <Navigation
+            links={navigationLinks}
+            tabs={false}
+            pills={true}
+            vertical={false}
+            justified={false}
+            />
+        </Col>
       </Row>
     </Container>
   )

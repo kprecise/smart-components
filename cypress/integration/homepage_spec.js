@@ -34,7 +34,6 @@ describe('Homepage', function() {
   it('loads correctly', function() {
     cy.visit('/');
   })
-  // const $headerLink = Cypress.$('ul li:second')
   it('home has correct values for link hrefs and labels', function() {
     const $homeLink = Cypress.$('a#home')
     cy.get($homeLink).should(($el) => {

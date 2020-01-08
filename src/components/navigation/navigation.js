@@ -24,20 +24,21 @@ const Navigation = (
           { !primaryItem.secondaryNav &&
             <NavLink
               href={primaryItem.href}
-              name={primaryItem.alt}>
+              name={primaryItem.name}
+              id={primaryItem.id}>
               {primaryItem.name}
             </NavLink>
           }
           </NavItem>
           { primaryItem.secondaryNav &&
-            <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
+            <Dropdown nav isOpen={dropdownOpen} id={primaryItem.id + '-secondary'} toggle={toggle}>
               <DropdownToggle nav caret>
                 {primaryItem.name}
               </DropdownToggle>
               <DropdownMenu>
               {
                 primaryItem.secondaryNavItem.map(secondaryItem => (
-                  <DropdownItem key={secondaryItem.id}>{secondaryItem.name}</DropdownItem>
+                  <DropdownItem key={secondaryItem.id} id={secondaryItem.id}>{secondaryItem.name}</DropdownItem>
                   )
                 )
               }
