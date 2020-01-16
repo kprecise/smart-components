@@ -1,4 +1,5 @@
 # Various React Components Using React Hooks
+This project contains `Navigation`, `Header`, `Carousel`, `Article`, `Order Form` and `Cart` components.
 
 ## Technologies
 This is a customised front end boilerplate using Webpack 4, React, Reactstrap, SASS and Cypress for Unit Testing.
@@ -18,19 +19,19 @@ A simple navigation which uses `Reactstrap's Navs` component https://reactstrap.
   />
 ```
 
-### Links 
+#### Links 
 Links is an array containing objects (can contain a secondary level too):
 
-### Tabs
+#### Tabs
 This receives a boolean value. True will set a tab layout for the navigation.
 
-### Pills   
+#### Pills   
 This receives a boolean value. True will set a pills shaped layout for the navigation.
 
-### Vertical 
+#### Vertical 
 This receives a boolean value. It will set a vertical orientation for the navigation.
 
-### Justified
+#### Justified
 This receives a boolean value. This will set a justified alignment for the navigation.
 
 ### Header

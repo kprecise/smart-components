@@ -1,4 +1,3 @@
- 
 describe('Navigation page', function() {
   it('loads correctly', function() {
     cy.visit('/navigation');
@@ -27,4 +26,5 @@ describe('Navigation page', function() {
     cy.get('#about-secondary .dropdown-item#link1').should('have.text','link1')
     cy.get('#about-secondary .dropdown-item#link2').should('have.text','link2')
   })
+
 });
